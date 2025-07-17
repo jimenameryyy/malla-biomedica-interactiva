@@ -32,12 +32,13 @@
         .curso {
             padding: 8px;
             margin: 6px 0;
-            background: #f7c6d9;
+            background: #f0f0f0;
             border-radius: 8px;
             text-align: left;
             position: relative;
             cursor: pointer;
             transition: 0.3s;
+            opacity: 0.5;
         }
         .curso.completado {
             text-decoration: line-through;
@@ -47,6 +48,7 @@
         .curso.habilitado {
             background-color: #fff8f8;
             border: 2px dashed #f7c6d9;
+            opacity: 1;
         }
         .curso:hover::after {
             content: attr(data-info);
@@ -70,73 +72,64 @@
 
     <div class="semestre">
         <h2>5to Semestre</h2>
-        <div class="curso" data-info="3.5 créditos | Sin requisito" data-creditos="3.5">Series y Transformadas</div>
-        <div class="curso" data-info="4 créditos | Sin requisito" data-creditos="4">Anatomía y Fisiología</div>
-        <div class="curso" data-info="4 créditos | Sin requisito" data-creditos="4">Bioquímica</div>
-        <div class="curso" data-info="3 créditos | Sin requisito" data-creditos="3">Programación Avanzada</div>
-        <div class="curso" data-info="4 créditos | Sin requisito" data-creditos="4">Ciencia e Ingeniería de Materiales</div>
-        <div class="curso" data-info="4 créditos | Sin requisito" data-creditos="4">Circuitos y Sistemas Digitales</div>
+        <div class="curso habilitado" id="bioquimica" data-info="4 créditos | Sin requisito" data-creditos="4">Bioquímica</div>
+        <div class="curso habilitado" id="circuitos" data-info="4 créditos | Sin requisito" data-creditos="4">Circuitos y Sistemas Digitales</div>
+        <div class="curso habilitado" id="materiales" data-info="4 créditos | Sin requisito" data-creditos="4">Ciencia e Ingeniería de Materiales</div>
     </div>
 
     <div class="semestre">
         <h2>6to Semestre</h2>
-        <div class="curso" data-info="4 créditos | Bioquímica" data-creditos="4">Microbiología y Cultivo Celular</div>
-        <div class="curso" data-info="3 créditos | Bioquímica" data-creditos="3">Molecular Biology for Engineers</div>
-        <div class="curso" data-info="5 créditos | Sin requisito" data-creditos="5">Proyectos de Biodiseño 1</div>
-        <div class="curso" data-info="3 créditos | Ciencia e Ingeniería de Materiales" data-creditos="3">Fundamentos de Mecánica de los Biomateriales</div>
-        <div class="curso" data-info="4 créditos | Circuitos y Sistemas Digitales" data-creditos="4">Electrónica Básica</div>
-        <div class="curso" data-info="3 créditos | Series y Transformadas" data-creditos="3">Digital Signal Processing</div>
+        <div class="curso" id="microbiologia" data-info="4 créditos | Bioquímica" data-creditos="4">Microbiología y Cultivo Celular</div>
+        <div class="curso" id="molecular" data-info="3 créditos | Bioquímica" data-creditos="3">Molecular Biology for Engineers</div>
+        <div class="curso" id="fundamentos" data-info="3 créditos | Ciencia e Ingeniería de Materiales" data-creditos="3">Fundamentos de Mecánica de los Biomateriales</div>
+        <div class="curso" id="electronica" data-info="4 créditos | Circuitos y Sistemas Digitales" data-creditos="4">Electrónica Básica</div>
     </div>
 
     <div class="semestre">
         <h2>7mo Semestre</h2>
-        <div class="curso" data-info="3 créditos | Ciencia e Ingeniería de Materiales" data-creditos="3">Mecánica y Transporte de Fluidos</div>
-        <div class="curso" data-info="3 créditos | Matemáticas" data-creditos="3">Bioestadística</div>
-        <div class="curso" data-info="2 créditos | Anatomía y Fisiología" data-creditos="2">Fisiopatología</div>
-        <div class="curso" data-info="3 créditos | Electrónica Básica" data-creditos="3">Instrumentación Biomédica</div>
-        <div class="curso" data-info="3 créditos | Electrónica Básica" data-creditos="3">Introducción a Señales Biomédicas</div>
-        <div class="curso" data-info="5 créditos | Proyectos de Biodiseño 1" data-creditos="5">Proyectos de Biodiseño 2</div>
-        <div class="curso" data-info="3 créditos | Ciencia e Ingeniería de Materiales" data-creditos="3">Biomateriales</div>
+        <div class="curso" id="biomateriales" data-info="3 créditos | Ciencia e Ingeniería de Materiales" data-creditos="3">Biomateriales</div>
+        <div class="curso" id="bioestadistica" data-info="3 créditos | Cálculo Vectorial" data-creditos="3">Bioestadística</div>
+        <div class="curso" id="fisiopatologia" data-info="2 créditos | Anatomía y Fisiología" data-creditos="2">Fisiopatología</div>
+        <div class="curso" id="instrumentacion" data-info="3 créditos | Electrónica Básica" data-creditos="3">Instrumentación Biomédica</div>
+        <div class="curso" id="senales" data-info="3 créditos | Electrónica Básica" data-creditos="3">Introducción a Señales Biomédicas</div>
+        <div class="curso" id="proyectos2" data-info="5 créditos | Proyectos de Biodiseño 1" data-creditos="5">Proyectos de Biodiseño 2</div>
     </div>
 
     <div class="semestre">
         <h2>8vo Semestre</h2>
-        <div class="curso" data-info="3 créditos | Instrumentación Biomédica" data-creditos="3">Ingeniería Clínica 1</div>
-        <div class="curso" data-info="3 créditos | Microbiología y Cultivo Celular" data-creditos="3">Introducción a Ingeniería de Tejidos</div>
-        <div class="curso" data-info="2 créditos | Sin requisito" data-creditos="2">Antropología</div>
-        <div class="curso" data-info="3 créditos | Proyectos de Biodiseño 2" data-creditos="3">Modelos de Negocios en Bioingeniería</div>
-        <div class="curso" data-info="4 créditos | Series y Transformadas" data-creditos="4">Teoría de Control en Sistemas Biológicos</div>
-        <div class="curso" data-info="3 créditos | Fundamentos de Mecánica de los Biomateriales" data-creditos="3">Biomecánica</div>
-        <div class="curso" data-info="3 créditos | Digital Signal Processing" data-creditos="3">Introduction to Medical Imaging</div>
-    </div>
-
-    <div class="semestre">
-        <h2>9no Semestre</h2>
-        <div class="curso" data-info="3 créditos | Ingeniería Clínica 1" data-creditos="3">Ingeniería Clínica 2</div>
-        <div class="curso" data-info="2 créditos | 150 créditos aprobados" data-creditos="2">Ética</div>
-        <div class="curso" data-info="2 créditos | 80 créditos aprobados" data-creditos="2">Desarrollo Profesional en Bioingeniería 1</div>
-        <div class="curso" data-info="2 créditos | 80 créditos aprobados" data-creditos="2">Desarrollo Profesional en Bioingeniería 2</div>
-        <div class="curso" data-info="4 créditos | Sin requisito" data-creditos="4">Electivo de Tesis 1</div>
-        <div class="curso" data-info="3 créditos | Sin requisito" data-creditos="3">Curso Electivo 1</div>
-        <div class="curso" data-info="3 créditos | Sin requisito" data-creditos="3">Curso Electivo 2</div>
-    </div>
-
-    <div class="semestre">
-        <h2>10mo Semestre</h2>
-        <div class="curso" data-info="2 créditos | 120 créditos aprobados" data-creditos="2">Desarrollo Profesional en Bioingeniería 3</div>
-        <div class="curso" data-info="2 créditos | Modelos de Negocios en Bioingeniería" data-creditos="2">Normas y Regulaciones en Bioingeniería</div>
-        <div class="curso" data-info="2 créditos | 120 créditos aprobados" data-creditos="2">Desarrollo Profesional en Bioingeniería 4</div>
-        <div class="curso" data-info="4 créditos | Sin requisito" data-creditos="4">Electivo de Tesis 2</div>
-        <div class="curso" data-info="3 créditos | Sin requisito" data-creditos="3">Curso Electivo 3</div>
-        <div class="curso" data-info="3 créditos | Sin requisito" data-creditos="3">Curso Electivo 4</div>
-        <div class="curso" data-info="3 créditos | Sin requisito" data-creditos="3">Curso Electivo 5</div>
-        <div class="curso" data-info="3 créditos | Sin requisito" data-creditos="3">Curso Electivo 6</div>
+        <div class="curso" id="clinica1" data-info="3 créditos | Instrumentación Biomédica" data-creditos="3">Ingeniería Clínica 1</div>
+        <div class="curso" id="tejidos" data-info="3 créditos | Microbiología y Cultivo Celular" data-creditos="3">Introducción a Ingeniería de Tejidos</div>
+        <div class="curso" id="modelos" data-info="3 créditos | Proyectos de Biodiseño 2" data-creditos="3">Modelos de Negocios en Bioingeniería</div>
+        <div class="curso" id="control" data-info="4 créditos | Series y Transformadas" data-creditos="4">Teoría de Control en Sistemas Biológicos</div>
+        <div class="curso" id="biomecanica" data-info="3 créditos | Fundamentos de Mecánica de los Biomateriales" data-creditos="3">Biomecánica</div>
+        <div class="curso" id="imagen" data-info="3 créditos | Digital Signal Processing" data-creditos="3">Introduction to Medical Imaging</div>
     </div>
 
     <script>
         const cursos = document.querySelectorAll('.curso');
         const creditosDisplay = document.getElementById('creditos');
         let baseCreditos = 88.5;
+
+        const prerrequisitos = {
+            bioquimica: ['microbiologia', 'molecular'],
+            circuitos: ['electronica', 'instrumentacion', 'senales'],
+            materiales: ['fundamentos', 'biomateriales'],
+            fundamentos: ['biomecanica'],
+            microbiologia: ['tejidos'],
+            proyectos2: ['modelos'],
+            instrumentacion: ['clinica1'],
+            control: ['imagen']
+        };
+
+        function habilitarCursos(id) {
+            const dependientes = prerrequisitos[id] || [];
+            dependientes.forEach(depId => {
+                const depCurso = document.getElementById(depId);
+                if (depCurso) {
+                    depCurso.classList.add('habilitado');
+                }
+            });
+        }
 
         function actualizarCreditos() {
             let total = baseCreditos;
@@ -150,13 +143,16 @@
         }
 
         cursos.forEach((curso, index) => {
+            if (!curso.classList.contains('habilitado')) return;
             curso.addEventListener('click', () => {
                 curso.classList.toggle('completado');
+                habilitarCursos(curso.id);
                 actualizarCreditos();
             });
             const saved = JSON.parse(localStorage.getItem('cursos_completados'));
             if (saved && saved[index]) {
                 curso.classList.add('completado');
+                habilitarCursos(curso.id);
             }
         });
 
