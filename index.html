@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Malla Interactiva - Ingeniería Biomédica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #d6336c;
+        }
+        .total-creditos {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .semestre {
+            background: #ffe4e1;
+            border: 2px solid #f7c6d9;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px;
+            width: 250px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .curso {
+            padding: 8px;
+            margin: 6px 0;
+            background: #f7c6d9;
+            border-radius: 8px;
+            text-align: left;
+            position: relative;
+        }
+        .curso:hover::after {
+            content: attr(data-info);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 5px;
+            white-space: nowrap;
+            z-index: 1;
+            font-size: 0.85rem;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Malla Interactiva Ingeniería Biomédica</h1>
+    <div class="total-creditos">
+        Créditos aprobados: <span id="creditos">88.5</span>
+    </div>
+
+    <div class="semestre">
+        <h2>5to Semestre</h2>
+        <div class="curso" data-info="3.5 créditos | Sin requisito"><input type="checkbox" data-creditos="3.5">Series y Transformadas</div>
+        <div class="curso" data-info="4 créditos | Sin requisito"><input type="checkbox" data-creditos="4">Anatomía y Fisiología</div>
+        <div class="curso" data-info="4 créditos | Sin requisito"><input type="checkbox" data-creditos="4">Bioquímica</div>
+        <div class="curso" data-info="3 créditos | Sin requisito"><input type="checkbox" data-creditos="3">Programación Avanzada</div>
+        <div class="curso" data-info="4 créditos | Sin requisito"><input type="checkbox" data-creditos="4">Ciencia e Ingeniería de Materiales</div>
+        <div class="curso" data-info="4 créditos | Sin requisito"><input type="checkbox" data-creditos="4">Circuitos y Sistemas Digitales</div>
+    </div>
+
+    <div class="semestre">
+        <h2>6to Semestre</h2>
+        <div class="curso" data-info="4 créditos | Bioquímica"><input type="checkbox" data-creditos="4">Microbiología y Cultivo Celular</div>
+        <div class="curso" data-info="3 créditos | Bioquímica"><input type="checkbox" data-creditos="3">Molecular Biology for Engineers</div>
+        <div class="curso" data-info="5 créditos | Sin requisito"><input type="checkbox" data-creditos="5">Proyectos de Biodiseño 1</div>
+        <div class="curso" data-info="3 créditos | Ciencia e Ingeniería de Materiales"><input type="checkbox" data-creditos="3">Fundamentos de Mecánica de los Biomateriales</div>
+        <div class="curso" data-info="4 créditos | Circuitos y Sistemas Digitales"><input type="checkbox" data-creditos="4">Electrónica Básica</div>
+        <div class="curso" data-info="3 créditos | Series y Transformadas"><input type="checkbox" data-creditos="3">Digital Signal Processing</div>
+    </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const creditosDisplay = document.getElementById('creditos');
+        let baseCreditos = 88.5;
+
+        function actualizarCreditos() {
+            let total = baseCreditos;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    total += parseFloat(checkbox.dataset.creditos);
+                }
+            });
+            creditosDisplay.textContent = total.toFixed(1);
+            localStorage.setItem('creditos_seleccionados', JSON.stringify(Array.from(checkboxes).map(cb => cb.checked)));
+        }
+
+        checkboxes.forEach((checkbox, index) => {
+            checkbox.addEventListener('change', actualizarCreditos);
+            const saved = JSON.parse(localStorage.getItem('creditos_seleccionados'));
+            if (saved && saved[index]) {
+                checkbox.checked = true;
+            }
+        });
+
+        actualizarCreditos();
+    </script>
+</body>
+</html>
